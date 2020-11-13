@@ -12,7 +12,7 @@
  * @link      https://gothic.com
  */
 
-namespace App;
+namespace App\Util;
 
 /**
  * The main router class.

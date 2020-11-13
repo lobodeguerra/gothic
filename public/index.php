@@ -19,4 +19,4 @@ namespace App;
 require '../vendor/autoload.php';
 
 // Start new router.
-new Router();
+new Util\Router();
