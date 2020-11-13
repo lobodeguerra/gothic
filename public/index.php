@@ -15,8 +15,11 @@
 // Declare namespace usage.
 namespace App;
 
+// Set a constant that let us know we entered through the gateway.
+define('GOTHIC_GATEWAY', true);
+
 // Composer autoload.
 require_once __DIR__.'/../vendor/autoload.php';
 
-// Bootstrap gothic.
+// Bootstrap Gothic.
 Gothic::bootstrap();
