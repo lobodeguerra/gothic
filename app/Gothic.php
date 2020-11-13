@@ -14,6 +14,8 @@
 
 namespace App;
 
+use App\Util\Singleton;
+
 /**
  * The main bootstrap class.
  *
@@ -26,26 +28,8 @@ namespace App;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class Gothic
+class Gothic extends Singleton
 {
-    /**
-     * A var to hold the singleton instance.
-     */
-    private static $_instance;
-
-    /**
-     * Handle singleton instance.
-     *
-     * @return void
-     */
-    public static function instance(): Gothic
-    {
-        if (!isset($this->_instance)) {
-            self::$_instance = new static();
-        }
-        return self::$_instance;
-    }
-
     /**
      * Construct the app.
      *
@@ -55,31 +39,5 @@ class Gothic
     {
         // 1. Start router.
         Router::init();
-    }
-
-    /**
-     * It's not allowed to create multiple instances,
-     * you have to obtain the instance from Singleton::getInstance() instead
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Prevent the instance from being cloned.
-     *
-     * @return void
-     */
-    private function __clone()
-    {
-    }
-
-    /**
-     * Prevent from being unserialized (which would create a second instance of it)
-     *
-     * @return void
-     */
-    private function __wakeup()
-    {
     }
 }
