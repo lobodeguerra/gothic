@@ -28,11 +28,4 @@ namespace App\Util;
  */
 class View
 {
-    /**
-     * Class constructor.
-     */
-    public function __construct()
-    {
-        echo "HELLO WORLD!";
-    }
 }
