@@ -34,6 +34,11 @@ class Router
     private static $_instance;
 
     /**
+     * A var to hold registered routes.
+     */
+    private static $_registered_routes;
+
+    /**
      * Handle singleton instance.
      *
      * @return void
@@ -43,18 +48,17 @@ class Router
         if (!isset($this->_instance)) {
             self::$_instance = new static();
         }
-
         return self::$_instance;
     }
 
     /**
-     * Start the app.
+     * Init the router.
      *
      * @return void
      */
     public static function init()
     {
-        
+        // Include here your routes.
     }
 
     /**

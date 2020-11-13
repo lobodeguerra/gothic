@@ -12,8 +12,11 @@
  * @link      https://gothic.com
  */
 
+// Declare namespace usage.
+namespace App;
+
 // Composer autoload.
 require_once __DIR__.'/../vendor/autoload.php';
 
-// Start gothic.
-new App\Gothic();
+// Bootstrap gothic.
+Gothic::bootstrap();
