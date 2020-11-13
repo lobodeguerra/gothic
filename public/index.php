@@ -18,8 +18,5 @@ namespace App;
 // Composer autoload.
 require_once __DIR__.'/../vendor/autoload.php';
 
-// Get gothic instance.
-$gothic = Gothic::instance();
-
 // Bootstrap gothic.
-$gothic::bootstrap();
+Gothic::bootstrap();
