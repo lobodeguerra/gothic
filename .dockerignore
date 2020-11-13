@@ -6,4 +6,5 @@ docker-compose.yaml
 .gitignore
 README.md
 Dockerfile
-.git
+**/.git
+!vendor

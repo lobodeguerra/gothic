@@ -12,11 +12,8 @@
  * @link      https://gothic.com
  */
 
-// Declare namespace usage.
-namespace App;
-
 // Composer autoload.
-require '../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
-// Start new router.
-new Util\Router();
+// Start gothic.
+new App\Gothic();

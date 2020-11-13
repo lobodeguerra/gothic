@@ -1,6 +1,6 @@
 <?php
 /**
- * The main router file.
+ * The main bootstrap class file.
  *
  * PHP version 7.4
  *
@@ -12,10 +12,10 @@
  * @link      https://gothic.com
  */
 
-namespace App\Util;
+namespace App;
 
 /**
- * The main router class.
+ * The main bootstrap class.
  *
  * PHP version 7.4
  *
@@ -26,13 +26,16 @@ namespace App\Util;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class Router
+class Gothic
 {
     /**
-     * Class constructor.
+     * Construct the app.
+     *
+     * @return void
      */
     public function __construct()
     {
-        echo "HELLO WORLD!";
+        // 1. Start router.
+        Router::init();
     }
 }

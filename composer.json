@@ -14,14 +14,13 @@
         "squizlabs/php_codesniffer": "^3.5.6"
     },
     "config": {
-        "optimize-autoloader": true,
+        "optimize-autoloader": false,
         "preferred-install": "dist",
         "sort-packages": true
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
