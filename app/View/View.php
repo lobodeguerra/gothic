@@ -12,7 +12,7 @@
  * @link      https://gothic.com
  */
 
-namespace App\Util;
+namespace App\View;
 
 /**
  * The main view class.
