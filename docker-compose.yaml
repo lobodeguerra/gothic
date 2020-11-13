@@ -11,6 +11,9 @@ services:
     volumes:
       # Mount PHP config files
       - ./docker/php/conf.d/gothic.ini:/usr/local/etc/php/conf.d/gothic.ini
+
+      # Mount app files
+      - ./app/:/var/www/gothic
     networks:
       - net
 
@@ -24,6 +27,9 @@ services:
     volumes:
       # Mount config
       - ./docker/nginx/conf.d/gothic.conf:/etc/nginx/conf.d/gothic.conf
+
+      # Mount app files
+      - ./app/:/var/www/gothic
     networks:
       - net
 
