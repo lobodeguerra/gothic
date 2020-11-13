@@ -13,7 +13,7 @@ services:
       - ./docker/php/conf.d/gothic.ini:/usr/local/etc/php/conf.d/gothic.ini
 
       # Mount app files
-      - ./app/:/var/www/gothic
+      - ./:/var/www/gothic
     networks:
       - net
 
@@ -29,7 +29,7 @@ services:
       - ./docker/nginx/conf.d/gothic.conf:/etc/nginx/conf.d/gothic.conf
 
       # Mount app files
-      - ./app/:/var/www/gothic
+      - ./:/var/www/gothic
     networks:
       - net
 

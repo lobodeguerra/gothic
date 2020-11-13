@@ -1,6 +1,6 @@
 <?php
 /**
- * The gateway.
+ * The main footer file.
  *
  * PHP version 7.4
  *
@@ -11,3 +11,9 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
+?>
+    <footer>
+
+    </footer>
+</body>
+</html>

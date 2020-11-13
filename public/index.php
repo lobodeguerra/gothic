@@ -1,6 +1,6 @@
 <?php
 /**
- * The main layout file.
+ * The gateway.
  *
  * PHP version 7.4
  *
@@ -12,10 +12,11 @@
  * @link      https://gothic.com
  */
 
-use App\Util\View;
+// Declare namespace usage.
+namespace App;
 
-new View();
-?>
+// Composer autoload.
+require '../vendor/autoload.php';
 
-    <h1>Hello World!</h1>
-
+// Start new router.
+new Router();
