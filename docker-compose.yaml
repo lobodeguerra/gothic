@@ -1,0 +1,70 @@
+version: '3.6'
+services:
+  # PHP container
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    image: gothic/php
+    container_name: gothic_php
+    restart: always
+    volumes:
+      # Mount PHP config files
+      - ./docker/php/conf.d/gothic.ini:/usr/local/etc/php/conf.d/gothic.ini
+    networks:
+      - net
+
+  # Nginx Webserver
+  webserver:
+    image: nginx:alpine
+    container_name: gothic_nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      # Mount config
+      - ./docker/nginx/conf.d/gothic.conf:/etc/nginx/conf.d/gothic.conf
+    networks:
+      - net
+
+  # MySQL Service
+  db:
+    image: mariadb
+    container_name: gothic_db
+    restart: always
+    environment:
+      # MySQL vars
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-gothic}
+      MYSQL_USER: ${MYSQL_USER:-gothic}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gothic}
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      # Main volume
+      - ./docker/mysql/gothic.cnf:/etc/mysql/gothic.cnf
+      
+      # DB volume
+      - db:/var/lib/mysql
+    networks:
+      - net
+
+  # PMA
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: gothic_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: gothic_db
+      PMA_USER: ${MYSQL_DATABASE:-gothic}
+      PMA_PASSWORD: ${MYSQL_PASSWORD:-gothic}
+    ports:
+      - 8080:80
+    networks:
+      - net
+
+# Docker Networks
+networks:
+  net:
+
+# Volumes
+volumes:
+  db:
