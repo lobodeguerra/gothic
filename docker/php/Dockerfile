@@ -4,7 +4,7 @@ FROM php:7.4-fpm
 WORKDIR /var/www/gothic
 
 # Copy files
-COPY . /var/www/gothic
+COPY ./app /var/www/gothic
 
 # Install required libs before extensions
 RUN apt-get update && apt-get install -y \
