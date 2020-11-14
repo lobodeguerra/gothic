@@ -36,13 +36,73 @@ class Router extends Singleton
     private static $_registered_routes;
 
     /**
+     * Define the routes.
+     *
+     * @return void
+     */
+    public static function routes()
+    {
+        // Get user defined routes.
+        include_once __DIR__ . '/../routes/routes.php';
+    }
+
+    /**
      * Init the router.
      *
      * @return void
      */
     public static function init()
     {
-        // Include here your routes.
-        
+        // Process routes.
+        self::routes();
+
+        // Process request.
+        self::processRequest();
+    }
+
+    /**
+     * Function to define a route.
+     *
+     * @param string   $route    The route path.
+     * @param callable $callback The route callback.
+     * @param string   $method   The route method.
+     *
+     * @return void
+     */
+    public static function route(
+        string $route,
+        callable $callback,
+        string $method = 'GET'
+    ) {
+        self::$_registered_routes[$route] = [
+            'callback' => $callback,
+            'method' => $method
+        ];
+    }
+
+    /**
+     * Function to process a the current URL and match to a registered route.
+     *
+     * @return void
+     */
+    public function processRequest()
+    {
+        // Get current request info from server details.
+        $route = $_SERVER['REQUEST_URI'];
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        $routeObj = self::$_registered_routes[$route] ?? false;
+
+        // Look for the route on the registered routes.
+        if (!$routeObj) {
+            // Throw 404 and exit.
+            header('Status: 404 Not Found');
+        }
+
+        // Build request info.
+        $request = [];
+
+        // If we could find the route, run route's callback.
+        call_user_func($routeObj['callback'], $request);
     }
 }

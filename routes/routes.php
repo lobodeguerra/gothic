@@ -1,6 +1,6 @@
 <?php
 /**
- * The main header file.
+ * The main routes file.
  *
  * PHP version 7.4
  *
@@ -11,15 +11,8 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gothic</title>
-</head>
-<body>
-    <header>
 
-    </header>
+namespace App;
+
+// Define routes.
+Router::route('/', [Controller\HomeController::class, 'home']);

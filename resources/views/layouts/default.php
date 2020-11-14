@@ -13,9 +13,23 @@
  */
 
 use App\Util\View;
-
-new View();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gothic</title>
+</head>
+<body>
+    <header>
 
-    <h1>Hello World!</h1>
+    </header>
+    <main>
+        <?php View::render() ?>
+    </main>
+    <footer>
 
+    </footer>
+</body>
+</html>

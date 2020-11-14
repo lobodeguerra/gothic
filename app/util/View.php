@@ -1,6 +1,6 @@
 <?php
 /**
- * The main bootstrap class file.
+ * The main layout file.
  *
  * PHP version 7.4
  *
@@ -12,13 +12,10 @@
  * @link      https://gothic.com
  */
 
-namespace App;
-
-use App\Util\Singleton;
-use App\Router\Route;
+namespace App\Util;
 
 /**
- * The main bootstrap class.
+ * The main view class.
  *
  * PHP version 7.4
  *
@@ -29,16 +26,23 @@ use App\Router\Route;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class Gothic extends Singleton
+class View
 {
     /**
-     * Construct the app.
-     *
-     * @return void
+     * Class constructor.
      */
-    public static function bootstrap()
+    public function __construct()
     {
-        // 1. Start router.
-        Router::init();
+
+    }
+
+    /**
+     * Render the included view.
+     *
+     * @return string
+     */
+    public function render() : string
+    {
+
     }
 }

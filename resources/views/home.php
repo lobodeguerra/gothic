@@ -1,6 +1,6 @@
 <?php
 /**
- * The main footer file.
+ * The home template file.
  *
  * PHP version 7.4
  *
@@ -12,8 +12,4 @@
  * @link      https://gothic.com
  */
 ?>
-    <footer>
-
-    </footer>
-</body>
-</html>
+<h1>Hello World!</h1>
