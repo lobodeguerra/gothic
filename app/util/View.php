@@ -29,11 +29,27 @@ namespace App\Util;
 class View
 {
     /**
-     * Class constructor.
+     * A var to hold registered routes.
      */
-    public function __construct()
-    {
+    private static $_view_name;
 
+    /**
+     * Load the included view.
+     *
+     * @param string $viewName Then name of the view to load.
+     * @param string $layout   Then name of the layout to load.
+     *
+     * @return string
+     */
+    public static function load(
+        string $viewName,
+        string $layout = 'default'
+    ) : string {
+        // Set view name.
+        self::$_view_name = $viewName;
+
+        // Load layout.
+        return include_once __DIR__ . "/../../resources/views/layouts/{$layout}.php";
     }
 
     /**
@@ -43,6 +59,10 @@ class View
      */
     public function render() : string
     {
+        // Get view name.
+        $viewName = self::$_view_name;
 
+        // Load view.
+        return include_once __DIR__ . "/../../resources/views/{$viewName}.php";
     }
 }

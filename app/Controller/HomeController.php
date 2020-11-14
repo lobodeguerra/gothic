@@ -40,6 +40,6 @@ class HomeController extends Singleton
      */
     public function home($request)
     {
-        
+        View::load('home');
     }
 }
