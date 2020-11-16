@@ -20,6 +20,8 @@ use App\Util\View;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gothic</title>
+
+    <link rel="stylesheet" href="/dist/css/main.css" />
 </head>
 <body>
     <header>
@@ -31,5 +33,7 @@ use App\Util\View;
     <footer>
 
     </footer>
+
+    <script src="/dist/js/app.js"></script>
 </body>
 </html>
