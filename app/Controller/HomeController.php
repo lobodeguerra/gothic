@@ -14,7 +14,6 @@
 
 namespace App\Controller;
 
-use App\Util\Singleton;
 use App\Util\View;
 
 /**
@@ -29,7 +28,7 @@ use App\Util\View;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class HomeController extends Singleton
+class HomeController extends ControllerBase
 {
     /**
      * Get the root view of the app.
