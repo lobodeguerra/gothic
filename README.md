@@ -140,9 +140,153 @@ This could be easily achieved with Gothic by adjusting `processRequest()` on `ap
 
 Creating a controller can be done by extending the base controller class. This practice allows you to keep a single class that can influence all of the controllers in case you need. There's nothing special about a controller class, other than being a class that holds different methods that can be called from the router to match a route with a view, and potentially, use Models in the middle to ineract with a Database.
 
+```
+<?php
+/**
+ * The main home controller class file.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+
+namespace App\Controller;
+
+use App\View\View;
+
+/**
+ * The main home controller class.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+class HomeController extends Controller
+{
+    /**
+     * Get the root view of the app.
+     *
+     * @param array $request The request that got us here.
+     *
+     * @return void
+     */
+    public function home(array $request)
+    {
+        View::render('home', ['request' => $request]);
+    }
+}
+```
+
 # Creating a Model
 
 Creating a controller can be done by implementing the Model interface. The Model interface contains a very basic CRUD definition that you can use to implement this functionality. Just as a Controller class uses Models and Views to provide the Router with the appropiate response for a requested route, a Model class would contain both the logic necessary for interacting with the database, and the definition for the relationships that it could potentially have with other models.
+
+```
+<?php
+/**
+ * The main model class file.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+
+namespace App\Model;
+
+/**
+ * The main model class.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+class Model
+{
+    /**
+     * A var to hold the related DB table name.
+     */
+    private $_table_name;
+
+    /**
+     * A var to hold the related DB table ID column name.
+     */
+    private $_id_column_name;
+
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Function to create a model on the database.
+     *
+     * @return boolean
+     */
+    public function create()
+    {
+        return false;
+    }
+
+    /**
+     * Function to read a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *                       If not provided, fetches all.
+     *
+     * @return boolean
+     */
+    public function read(int $object_id = null)
+    {
+        return false;
+    }
+
+    /**
+     * Function to update a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *
+     * @return boolean
+     */
+    public function update(int $object_id)
+    {
+        return false;
+    }
+
+    /**
+     * Function to read a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *
+     * @return void
+     */
+    public function delete(int $object_id)
+    {
+        return false;
+    }
+}
+```
 
 # Creating a View
 
