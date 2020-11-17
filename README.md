@@ -393,6 +393,6 @@ Gothic comes prepared for modern front-end development, by offering a basic webp
 
 Gothic, however, neither imposes nor includes any CSS package; rather provides an already setup source JS and SASS files that you can use to quickly begin building using your own packages.
 
-# Contributions
+# Contributing
 
-This project is completely open source and licensed under GNU GPL License. Please read the contribution guidelines if you want to collaborate.
+This project is completely open source and licensed under GNU GPL License. Please read the contributing guidelines if you want to collaborate. Gothic is completely open for contributions from all around the world.
