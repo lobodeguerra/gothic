@@ -14,7 +14,7 @@ Just as most of frameworks come heavy-packed with features and sugar syntax, the
 
 - Docker
 - Docker Compose
-- Node & NPM
+- Node & NPM (Please use NVM)
 
 # Start the project
 
