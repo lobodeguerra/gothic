@@ -294,6 +294,25 @@ To create a View you need to create a new view template (a PHP file that contain
 
 There are two kinds of templates: *view* templates and *layout* templates. Layout templates are the skeletons that later get hydrated with the content from the views, and they live under the `app/View/templates/layouts` directory. View templates live anywhere you choose inside `app/View/templates` folder.(except for layouts, of course, although possible to have view templates inside the layouts folder, it is strongly recommended to aovid mixing them).
 
+```
+<?php
+/**
+ * The home template file.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+?>
+<h1>Hello World!</h1>
+
+```
+
 ### Rendering a view
 
 A View is often rendered as the end result of a Controller function.
@@ -322,6 +341,48 @@ When a view is rendered, a layout is rendered first, and the desired view is inj
 ### Creating a layout
 
 To create a layout you need to add a layout template (a PHP file with HTML markup) file inside `app/View/templates/layouts`. Then, you need to call `View::inject($data)` where you will want to display the view template (another PHP file with HTML markup).
+
+```
+<?php
+/**
+ * The main layout file.
+ *
+ * PHP version 7.4
+ *
+ * @category  MVC_Framework
+ * @package   Gothic
+ * @author    Isaac L. Felix <isaac@lobodeguerra.com>
+ * @copyright 2020 Gothic PHP Framework
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @link      https://gothic.com
+ */
+
+use App\View\View;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gothic</title>
+
+    <link rel="stylesheet" href="/dist/css/main.css" />
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <?php View::inject($data) ?>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script src="/dist/js/app.js"></script>
+</body>
+</html>
+```
 
 ### Frontend scaffolding
 
