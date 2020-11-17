@@ -10,6 +10,38 @@ There is really no need of replacing some of the PHP native features that get co
 ### Visibility
 Just as most of frameworks come heavy-packed with features and sugar syntax, they also put the core files away from the developer's gaze and understanding. While this is justified from the perspective of a more clean project setup, it becomes hard to understand how the framework operates under the hood. Gothic has nothing to hide and holds transparency as its main architecture directive.
 
+# Dependencies
+
+- Docker
+- Docker Compose
+- Node & NPM
+
+# Start the project
+
+### Prerrequisites
+
+Add this to your hosts file:
+
+```
+127.0.0.1   local.gothic.com
+```
+
+### Install
+
+Start by cloning the repository at: https://github.com/lobodeguerra/gothic
+
+Once you clone it, set the appropriate Node.js version by opening a terminal on the project folder, and running:
+
+`nvm use`
+
+After doing that, install dependencies by running:
+
+`composer install && npm i`
+
+### Start
+
+To start the project, you just need to run `docker-compose up -d && npm start`.
+
 # Project structure
 The project structure for a Gothic project is pretty simple.
 
@@ -19,6 +51,7 @@ The project structure for a Gothic project is pretty simple.
 - public/ - The compiled files served by the application
 - .dockerignore - Contains files that if mounted on Docker would slow things down.
 - .env - Contains environment variables used for the local development environment. You can create one from .env.example, adjusting it to your needs
+- .nvmrc - Used by NVM to ensure the right Node.js version is used.
 - composer.json - The composer file used for code standards supervision with PHPCS, class autoloading, and vendor PHP dependencies.
 - docker-composel.yaml - The local environment setup for Docker through Docker Compose.
 - package.json - Contains the NPM dependencies necessary to run the frontend asset management tools.
@@ -32,6 +65,18 @@ Before getting into the main `app` and `public` folders, the `docker` folder is 
 ##### docker-compose.yaml
 
 The docker compose file contains the configuration for a basic PHP local development server. It includes 4 services: php-fpm for PHP processing, nginx for server management, mariadb as the mysql engine, and phpmyadmin as a tool to view the databases. 
+
+##### mysql
+
+Contains the mysql config file.
+
+##### nginx
+
+Contains the nginx config file.
+
+##### php
+
+Contains the php config file and the Dockerfile for the used PHP image.
 
 ### app
 
@@ -53,6 +98,9 @@ A Gothic project contains all app-related files in the app folder. All the Model
     - Test.php - Base test class. Extend this to create your tests easily. Use this to modify all tests from one point if needed.
   - View/ - Where the view class and the templates live
     - View.php - View class. Controlls how the PHP templates are loaded. Injects template inside a default document layout unless specified otherwise.
+    - assets/ - Assets folder. Contains sass, js, fonts, images, etc.
+    - templates/ - Templates folder. Contains the PHP files for the Views markup.
+        - layouts/ - Layouts folder. Contains a default layout to be used by the app, and potentially alternative layouts.
   - Gothic.php - The main gothic class. Controls the app bootstrap and acts as the kernel for the framework.
 ```
   
@@ -70,3 +118,76 @@ The `public` folder is the folder that a webserver points to render the applicat
     - images/
     - ...
 ```
+
+# Defining routes
+
+Defining a route is very simple. They are defined in `app/Router/routes/web.php` or `app/Router/routes/api.php`. This is of course, completely changable to your tastes. You can use one file or many, and adjust `routes()` on `app/Router/Router.php` to include the files that you need. In this example:
+
+```
+// Define routes.
+Router::route('/', [\App\Controller\HomeController::class, 'home'], 'GET');
+```
+
+The `route` function params are simply a route path, a callback for the route, and a method that the route will use. On this case, the callback comes from a controller class, by passing an array with the source class and the method name. The `GET` method is assumed by default, but displayed here to show that you can use `POST` too.
+
+### Supported methods
+
+PHP only supports `GET` and `POST` so thats what Gothic natively supports. Some frameworks rely on a technique called *method spoofing* to offer additional protocols.
+
+This could be easily achieved with Gothic by adjusting `processRequest()` on `app/Router/Router.php` to catch a param available on `$_REQUEST`, sent through POST. It is not natively included because method spoofing can be superflous in a wide range of projects that do not require a so complex http handling. Gothic's philosophy is to provide the essential, and not to assume this kind of needs.
+
+# Creating a Controller
+
+Creating a controller can be done by extending the base controller class. This practice allows you to keep a single class that can influence all of the controllers in case you need. There's nothing special about a controller class, other than being a class that holds different methods that can be called from the router to match a route with a view, and potentially, use Models in the middle to ineract with a Database.
+
+# Creating a Model
+
+Creating a controller can be done by implementing the Model interface. The Model interface contains a very basic CRUD definition that you can use to implement this functionality. Just as a Controller class uses Models and Views to provide the Router with the appropiate response for a requested route, a Model class would contain both the logic necessary for interacting with the database, and the definition for the relationships that it could potentially have with other models.
+
+# Creating a View
+
+To create a View you need to create a new view template (a PHP file that contains HTML markup) in the `app/View/templates` folder. Using subfolders is supported by specifying the path on the `View::render` function.
+
+There are two kinds of templates: *view* templates and *layout* templates. Layout templates are the skeletons that later get hydrated with the content from the views, and they live under the `app/View/templates/layouts` directory. View templates live anywhere you choose inside `app/View/templates` folder.(except for layouts, of course, although possible to have view templates inside the layouts folder, it is strongly recommended to aovid mixing them).
+
+### Rendering a view
+
+A View is often rendered as the end result of a Controller function.
+
+```
+/**
+ * Get the root view of the app.
+ *
+ * @param array $request The request that got us here.
+ *
+ * @return void
+ */
+public function home(array $request)
+{
+    // Do the magic here.
+
+    // Render view, passing data to it.
+    View::render('home/index', ['request' => $request], 'home');
+}
+```
+
+The `render` function has 3 parameters: the name of a view template (path is supported as long it is relative to the app/View/templates directory), an array of optional data to pass to the view from the controller, and optionally the name of a layout that is not the default layout. This last parameter is specially useful when creating views that have a different layout than the one used most extensively on the app.
+
+When a view is rendered, a layout is rendered first, and the desired view is injected within that layout. This allows the DRY principle to be maintained. The passed data from the controller will be available to both the layout template and the view template that are being used.
+
+### Creating a layout
+
+To create a layout you need to add a layout template (a PHP file with HTML markup) file inside `app/View/templates/layouts`. Then, you need to call `View::inject($data)` where you will want to display the view template (another PHP file with HTML markup).
+
+### Frontend scaffolding
+
+Gothic comes prepared for modern front-end development, by offering a basic webpack setup that can be easily extended and customized to your needs.
+
+- Running `npm start` will start the project in development mode, and open a new window that will be automatically kept up to date through HRM.
+- Running `npm run build` will compile assets for deploy.
+
+Gothic, however, neither imposes nor includes any CSS package; rather provides an already setup source JS and SASS files that you can use to quickly begin building using your own packages.
+
+# Contributions
+
+This project is completely open source and licensed under GNU GPL License. Please read the contribution guidelines if you want to collaborate.
