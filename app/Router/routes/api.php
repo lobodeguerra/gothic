@@ -1,6 +1,6 @@
 <?php
 /**
- * The main routes file.
+ * The main API routes file.
  *
  * PHP version 7.4
  *
@@ -15,4 +15,3 @@
 namespace App;
 
 // Define routes.
-Router::route('/', [Controller\HomeController::class, 'home']);

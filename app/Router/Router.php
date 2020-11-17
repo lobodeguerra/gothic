@@ -12,9 +12,9 @@
  * @link      https://gothic.com
  */
 
-namespace App;
+namespace App\Router;
 
-use App\Util\Singleton;
+use App\Lib\Singleton;
 
 /**
  * The main router class.
@@ -43,7 +43,8 @@ class Router extends Singleton
     public static function routes()
     {
         // Get user defined routes.
-        include_once __DIR__ . '/../routes/routes.php';
+        include_once __DIR__ . '/routes/api.php';
+        include_once __DIR__ . '/routes/web.php';
     }
 
     /**

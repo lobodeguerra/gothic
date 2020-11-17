@@ -1,6 +1,6 @@
 <?php
 /**
- * The main router class file.
+ * The main controller class file.
  *
  * PHP version 7.4
  *
@@ -14,10 +14,10 @@
 
 namespace App\Controller;
 
-use App\Util\Singleton;
+use App\Lib\Singleton;
 
 /**
- * The main router class.
+ * The main controller class.
  *
  * PHP version 7.4
  *
@@ -28,6 +28,6 @@ use App\Util\Singleton;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class ControllerBase extends Singleton
+class Controller extends Singleton
 {
 }

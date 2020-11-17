@@ -1,6 +1,6 @@
 <?php
 /**
- * The main bootstrap class file.
+ * The main Gothic class file.
  *
  * PHP version 7.4
  *
@@ -14,8 +14,8 @@
 
 namespace App;
 
-use App\Util\Singleton;
-use App\Router\Route;
+use App\Lib\Singleton;
+use App\Router\Router;
 
 /**
  * The main bootstrap class.

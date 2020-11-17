@@ -12,7 +12,7 @@
  * @link      https://gothic.com
  */
 
-use App\Util\View;
+use App\View\View;
 ?>
 <!DOCTYPE html>
 <html lang="en">

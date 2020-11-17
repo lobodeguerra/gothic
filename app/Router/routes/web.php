@@ -1,6 +1,6 @@
 <?php
 /**
- * The gateway.
+ * The main routes file.
  *
  * PHP version 7.4
  *
@@ -12,13 +12,7 @@
  * @link      https://gothic.com
  */
 
-namespace App;
+namespace App\Router;
 
-// Set a constant that let us know we entered through the gateway.
-define('GOTHIC_GATEWAY', true);
-
-// Composer autoload.
-require_once __DIR__.'/../vendor/autoload.php';
-
-// Bootstrap Gothic.
-Gothic::bootstrap();
+// Define routes.
+Router::route('/', [\App\Controller\HomeController::class, 'home']);

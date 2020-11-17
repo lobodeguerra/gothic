@@ -1,6 +1,6 @@
 <?php
 /**
- * The main home controller class file.
+ * The main model class file.
  *
  * PHP version 7.4
  *
@@ -12,12 +12,10 @@
  * @link      https://gothic.com
  */
 
-namespace App\Controller;
-
-use App\View\View;
+namespace App\Model;
 
 /**
- * The main home controller class.
+ * The main model class.
  *
  * PHP version 7.4
  *
@@ -28,17 +26,13 @@ use App\View\View;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class HomeController extends Controller
+class Model
 {
     /**
-     * Get the root view of the app.
-     *
-     * @param array $request The request that got us here.
-     *
-     * @return void
+     * Class constructor.
      */
-    public function home($request)
+    public function __construct()
     {
-        View::load('home');
+        
     }
 }

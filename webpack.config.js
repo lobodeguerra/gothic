@@ -14,7 +14,7 @@ const plugins = [
 ]
 
 module.exports = {
-    entry: './resources/src/index.js',
+    entry: './app/View/assets/js/index.js',
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public', 'dist', 'js')

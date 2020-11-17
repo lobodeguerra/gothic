@@ -12,7 +12,7 @@
  * @link      https://gothic.com
  */
 
-namespace App\Util;
+namespace App\Lib;
 
 /**
  * The main Singleton class.
