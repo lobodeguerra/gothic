@@ -29,10 +29,66 @@ namespace App\Model;
 class Model
 {
     /**
+     * A var to hold the related DB table name.
+     */
+    private $_table_name;
+
+    /**
+     * A var to hold the related DB table ID column name.
+     */
+    private $_id_column_name;
+
+    /**
      * Class constructor.
      */
     public function __construct()
     {
-        
+    }
+
+    /**
+     * Function to create a model on the database.
+     *
+     * @return boolean
+     */
+    public function create()
+    {
+        return false;
+    }
+
+    /**
+     * Function to read a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *                       If not provided, fetches all.
+     *
+     * @return boolean
+     */
+    public function read(int $object_id = null)
+    {
+        return false;
+    }
+
+    /**
+     * Function to update a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *
+     * @return boolean
+     */
+    public function update(int $object_id)
+    {
+        return false;
+    }
+
+    /**
+     * Function to read a model on the database.
+     * 
+     * @param int $object_id The object id on the database.
+     *
+     * @return void
+     */
+    public function delete(int $object_id)
+    {
+        return false;
     }
 }
