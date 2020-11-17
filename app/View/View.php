@@ -49,12 +49,14 @@ class View extends Singleton
      * Load the included view.
      *
      * @param string $viewName   The name of the view to load.
+     * @param array  $data       Data to be passed to the view from the controller.
      * @param string $layoutName The name of the layout to load.
      *
      * @return string
      */
     public static function load(
         string $viewName,
+        array $data = [],
         string $layoutName = 'default'
     ) : string {
         // Set view name.
@@ -63,6 +65,9 @@ class View extends Singleton
         // Get layouts path.
         $layouts_path = self::$_layouts_path;
 
+        // Create variables from passed data in the current scope.
+        extract($data);
+
         // Load layout.
         return include_once "{$layouts_path}/{$layoutName}.php";
     }
@@ -70,15 +75,20 @@ class View extends Singleton
     /**
      * Render the included view.
      *
+     * @param $data Data to be passed to the view from the controller.
+     *
      * @return string
      */
-    public static function render() : string
+    public static function render(array $data = []) : string
     {
         // Get view name.
         $viewName = self::$_view_name;
 
         // Get templates path.
         $templates_path = self::$_templates_path;
+
+        // Create variables from passed data in the current scope.
+        extract($data);
 
         // Load view.
         return include_once "{$templates_path}/{$viewName}.php";

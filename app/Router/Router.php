@@ -100,10 +100,7 @@ class Router extends Singleton
             header('Status: 404 Not Found');
         }
 
-        // Build request info.
-        $request = [];
-
         // If we could find the route, run route's callback.
-        call_user_func($routeObj['callback'], $request);
+        call_user_func($routeObj['callback'], $_REQUEST);
     }
 }

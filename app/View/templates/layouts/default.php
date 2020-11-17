@@ -28,7 +28,7 @@ use App\View\View;
 
     </header>
     <main>
-        <?php View::render() ?>
+        <?php View::render($data) ?>
     </main>
     <footer>
 
