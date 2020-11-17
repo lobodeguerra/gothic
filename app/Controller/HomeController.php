@@ -39,6 +39,6 @@ class HomeController extends Controller
      */
     public function home(array $request)
     {
-        View::load('home', ['request' => $request]);
+        View::render('home', ['request' => $request]);
     }
 }

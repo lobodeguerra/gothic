@@ -46,7 +46,7 @@ class View extends Singleton
     private static $_layouts_path = __DIR__ . '/templates/layouts';
 
     /**
-     * Load the included view.
+     * Render a view through a layout.
      *
      * @param string $viewName   The name of the view to load.
      * @param array  $data       Data to be passed to the view from the controller.
@@ -54,7 +54,7 @@ class View extends Singleton
      *
      * @return string
      */
-    public static function load(
+    public static function render(
         string $viewName,
         array $data = [],
         string $layoutName = 'default'
@@ -73,13 +73,13 @@ class View extends Singleton
     }
 
     /**
-     * Render the included view.
+     * Inject the included view.
      *
      * @param $data Data to be passed to the view from the controller.
      *
      * @return string
      */
-    public static function render(array $data = []) : string
+    public static function inject(array $data = []) : string
     {
         // Get view name.
         $viewName = self::$_view_name;
