@@ -1,6 +1,6 @@
 <?php
 /**
- * The main controller class file.
+ * The main Controller class file.
  *
  * PHP version 8.0
  *
@@ -15,7 +15,7 @@
 namespace Gothic\Controller;
 
 /**
- * The main controller class.
+ * The main Controller class.
  *
  * PHP version 8.0
  *

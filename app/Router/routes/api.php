@@ -1,6 +1,6 @@
 <?php
 /**
- * The main API routes file.
+ * The API routes file.
  *
  * PHP version 8.0
  *

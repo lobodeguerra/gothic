@@ -1,6 +1,6 @@
 <?php
 /**
- * The main home controller class file.
+ * The Home Controller class file.
  *
  * PHP version 8.0
  *
@@ -17,7 +17,7 @@ namespace Gothic\Controller;
 use Gothic\View\View;
 
 /**
- * The main home controller class.
+ * The Home Controller class.
  *
  * PHP version 8.0
  *
