@@ -14,6 +14,8 @@
 
 namespace Gothic\Controller;
 
+use Gothic\View\View;
+
 /**
  * The main home controller class.
  *
@@ -37,6 +39,6 @@ class HomeController extends Controller
      */
     public static function home(array $request)
     {
-
+        View::render('home');
     }
 }

@@ -31,7 +31,7 @@ class Router
     /**
      * A var to hold registered routes.
      */
-    private static $_registered_routes;
+    private static array $_registered_routes;
 
     /**
      * Define the routes.
