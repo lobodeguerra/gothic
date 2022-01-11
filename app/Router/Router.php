@@ -93,7 +93,7 @@ class Router
         $route_obj = self::$_registered_routes[$route] ?? false;
 
         // Look for the route on the registered routes.
-        if (false === $route_obj) {
+        if (false === $route_obj || $method !== $route_obj['method']) {
             // Throw 404 and exit.
             header('Status: 404 Not Found');
         }
