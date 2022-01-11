@@ -27,15 +27,17 @@ A modern MVC framework like Gothic needs to be scalable across cloud services an
 # Dependencies
 
 - Docker Desktop
+- Node
+- NVM
 
 ### Frontend scaffolding
 
-Gothic comes prepared for modern front-end development, by offering a basic webpack setup that can be easily extended and customized to your needs.
+Gothic comes prepared for modern front-end development, by offering a basic webpack + postcss setup that can be easily extended and customized to your needs.
 
 - Running `npm start` will start the project in development mode, and open a new window that will be automatically kept up to date through HRM.
 - Running `npm run build` will compile assets for deploy.
 
-Gothic, however, neither imposes nor includes any CSS package; rather provides an already setup source JS and SASS files that you can use to quickly begin building using your own packages.
+Gothic neither imposes nor includes any CSS package; rather provides an already setup source JS and SASS files that you can use to quickly begin building using the packages of your choosing.
 
 # Contributing
 
