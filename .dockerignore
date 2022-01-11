@@ -1,0 +1,11 @@
+docker
+.env.*
+docker-compose.yaml
+.dockerignore
+.DS_Store
+.gitignore
+README.md
+Dockerfile
+**/.git
+!vendor
+node_modules
