@@ -38,7 +38,7 @@ Start the containers:
 Then install composer dependencies:
 - `docker exec gothic_php_1 composer install`
 
-Select node version and insstall node dependencies:
+Select node version and install node dependencies:
 - `nvm use`
 - `npm install`
 
