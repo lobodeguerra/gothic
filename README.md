@@ -24,13 +24,15 @@ In order to be pluggable and automatically updatable Gothic needs to be extensib
 ### Cloud Scalability
 A modern MVC framework like Gothic needs to be scalable across cloud services and stay prepared for deployment in this kind of architecture. Gothic pushes for the usage of tools like Docker, Kubernetes, Terraform or any other that would help to make the deployment of a Gothic based app to the cloud a seamless, easy process.
 
-# Dependencies
+## Installation
+
+### Dependencies
 
 - Docker Desktop
 - Node
 - NVM
 
-## Installation
+---
 
 Start the containers:
 - `docker-compose up -d`
