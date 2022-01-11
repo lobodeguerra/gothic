@@ -30,9 +30,21 @@ A modern MVC framework like Gothic needs to be scalable across cloud services an
 - Node
 - NVM
 
-### Frontend scaffolding
+## Installation
 
-Gothic comes prepared for modern front-end development, by offering a basic webpack + postcss setup that can be easily extended and customized to your needs.
+Start the containers:
+- `docker-compose up -d`
+
+Then install composer dependencies:
+- `docker exec gothic_php_1 composer install`
+
+Select node version and insstall node dependencies:
+- `nvm use`
+- `npm install`
+
+### Local development
+
+Gothic comes prepared for modern development, by offering a basic webpack + webpack server + postcss setup that can be easily extended and customized to your needs.
 
 - Running `npm start` will start the project in development mode, and open a new window that will be automatically kept up to date through HRM.
 - Running `npm run build` will compile assets for deploy.
