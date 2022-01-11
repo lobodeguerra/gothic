@@ -4,3 +4,4 @@ vendor
 node_modules
 *.hot-update.json
 *.hot-update.js
+public/dist
