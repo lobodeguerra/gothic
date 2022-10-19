@@ -1,0 +1,58 @@
+version: '3.6'
+services:
+    # PHP container
+    php:
+        build:
+            context: .
+            dockerfile: ./docker/php/Dockerfile
+        restart: always
+        volumes:
+            # Mount PHP config files
+            - ./docker/php/conf.d/gothic.ini:/usr/local/etc/php/conf.d/gothic.ini
+
+            # Mount app files
+            - ./:/var/www/html
+        networks:
+            - gothic
+
+    # Nginx Webserver
+    webserver:
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - 80:80
+        volumes:
+            # Mount config
+            - ./docker/nginx/conf.d/gothic.conf:/etc/nginx/conf.d/gothic.conf
+
+            # Mount app files
+            - ./:/var/www/html
+        networks:
+            - gothic
+
+    # MySQL Service
+    db:
+        image: mariadb
+        restart: always
+        environment:
+            # MySQL vars
+            MYSQL_DATABASE: ${MYSQL_DATABASE:-gothic}
+            MYSQL_USER: ${MYSQL_USER:-gothic}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gothic}
+            MYSQL_RANDOM_ROOT_PASSWORD: '1'
+        volumes:
+            # Main volume
+            - ./docker/mysql/gothic.cnf:/etc/mysql/gothic.cnf
+
+            # DB volume
+            - db:/var/lib/mysql
+        networks:
+            - gothic
+
+# Docker Networks
+networks:
+    gothic:
+
+# Volumes
+volumes:
+    db:

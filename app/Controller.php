@@ -2,7 +2,7 @@
 /**
  * The main Controller class file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -12,12 +12,12 @@
  * @link      https://lobodeguerra.com
  */
 
-namespace Gothic\Controller;
+namespace Gothic;
 
 /**
  * The main Controller class.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic

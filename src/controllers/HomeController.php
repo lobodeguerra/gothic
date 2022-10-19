@@ -2,24 +2,22 @@
 /**
  * The Home Controller class file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
- * @category  MVC_Framework
- * @package   Gothic
- * @author    Isaac Félix <isaac.felix@lobodeguerra.com>
- * @copyright 2022 Gothic PHP Framework
+ * @category  Your_App_Category
+ * @package   YourApp
+ * @author    Your Name <email@provider.com>
+ * @copyright 2022 YourApp
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
- * @link      https://lobodeguerra.com
+ * @link      https://yourwebsite.com
  */
 
-namespace Gothic\Controller;
-
-use Gothic\View\View;
+namespace Controllers;
 
 /**
  * The Home Controller class.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -28,7 +26,7 @@ use Gothic\View\View;
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://gothic.com
  */
-class HomeController extends Controller
+class HomeController extends \Gothic\Controller
 {
     /**
      * Get the root view of the app.
@@ -39,6 +37,6 @@ class HomeController extends Controller
      */
     public static function home(array $request)
     {
-        View::render('home');
+        \Gothic\View::render('home');
     }
 }

@@ -2,7 +2,7 @@
 /**
  * The main view file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -12,12 +12,12 @@
  * @link      https://lobodeguerra.com
  */
 
-namespace Gothic\View;
+namespace Gothic;
 
 /**
  * The main view class.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -36,12 +36,12 @@ class View
     /**
      * A var to hold the path to the templates folder.
      */
-    private static string $_templates_path = __DIR__ . '/templates';
+    private static string $_templates_path = __DIR__ . '/../src/views';
 
     /**
      * A var to hold the path to the layouts folder.
      */
-    private static string $_layouts_path = __DIR__ . '/templates/layouts';
+    private static string $_layouts_path = __DIR__ . '/../src/views/layouts';
 
     /**
      * Render a view through a layout.

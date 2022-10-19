@@ -2,7 +2,7 @@
 /**
  * The main Gothic class file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -17,7 +17,7 @@ namespace Gothic;
 /**
  * The main bootstrap class.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -36,6 +36,6 @@ class Gothic
     public static function bootstrap()
     {
         // Start router.
-        Router\Router::init();
+        Router::init();
     }
 }

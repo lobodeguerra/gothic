@@ -19,7 +19,7 @@ Why including pre packed features when you can use pluggable modules? Gothic sta
 Gothic tries to provide understandable core files that are properly separated from user files so that updating the framework can be an automated process instead of a manual process.
 
 ### Extensibility
-In order to be pluggable and automatically updatable Gothic needs to be extensible, in a way that protects user customizations from getting unwanted changs from extensions and core files updates.
+In order to be pluggable and automatically updatable Gothic needs to be extensible, in a way that protects user customizations from getting unwanted changes from extensions and core files updates.
 
 ### Cloud Scalability
 A modern MVC framework like Gothic needs to be scalable across cloud services and stay prepared for deployment in this kind of architecture. Gothic pushes for the usage of tools like Docker, Kubernetes, Terraform or any other that would help to make the deployment of a Gothic based app to the cloud a seamless, easy process.
@@ -27,6 +27,7 @@ A modern MVC framework like Gothic needs to be scalable across cloud services an
 # Dependencies
 
 - Docker Desktop
+- Node.js & NVM
 
 ### Frontend scaffolding
 

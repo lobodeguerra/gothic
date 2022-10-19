@@ -2,7 +2,7 @@
 /**
  * The gateway.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -16,7 +16,7 @@
 namespace Gothic;
 
 // Composer autoload.
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Bootstrap Gothic.
 Gothic::bootstrap();

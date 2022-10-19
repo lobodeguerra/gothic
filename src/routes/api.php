@@ -1,8 +1,8 @@
 <?php
 /**
- * The web routes file.
+ * The API routes file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -14,7 +14,4 @@
 
 namespace Gothic;
 
-use Gothic\Controller\HomeController;
-
 // Define routes.
-Router\Router::route('/', [HomeController::class, 'home']);

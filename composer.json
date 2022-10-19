@@ -20,7 +20,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Gothic\\": "app/"
+            "Gothic\\": "app/",
+            "Controllers\\": "src/controllers/",
+            "Models\\": "src/models/",
+            "Views\\": "src/views/",
+            "Routes\\": "src/routes/"
         }
     },
     "autoload-dev": {

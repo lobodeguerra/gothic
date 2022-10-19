@@ -2,7 +2,7 @@
 /**
  * The main layout file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -11,8 +11,6 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @link      https://lobodeguerra.com
  */
-
-use Gothic\View\View;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +26,7 @@ use Gothic\View\View;
 
     </header>
     <main>
-        <?php View::inject($data) ?>
+        <?php \Gothic\View::inject($data) ?>
     </main>
     <footer>
 

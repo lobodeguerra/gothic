@@ -2,7 +2,7 @@
 /**
  * The main Model class file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -12,12 +12,12 @@
  * @link      https://lobodeguerra.com
  */
 
-namespace Gothic\Model;
+namespace Gothic;
 
 /**
  * The main Model class.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
@@ -59,7 +59,7 @@ class Model
 
     /**
      * Function to read a model from the database.
-     * 
+     *
      * @param int $object_id The object id on the database.
      *
      * @return object
@@ -71,7 +71,7 @@ class Model
 
     /**
      * Function to update a model on the database.
-     * 
+     *
      * @param int   $object_id The object id on the database.
      * @param array $data      The new object data.
      *
@@ -84,7 +84,7 @@ class Model
 
     /**
      * Function to delete a model on the database.
-     * 
+     *
      * @param int $object_id The object id on the database.
      *
      * @return bool True on delete success, false on failure.

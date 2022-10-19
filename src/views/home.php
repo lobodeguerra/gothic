@@ -2,7 +2,7 @@
 /**
  * The home template file.
  *
- * PHP version 8.0
+ * PHP version 8.1
  *
  * @category  MVC_Framework
  * @package   Gothic
